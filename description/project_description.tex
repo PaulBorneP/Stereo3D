@@ -1,0 +1,57 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[style=ieee]{biblatex}
+\addbibresource{biblio.bib}
+
+
+\cvprfinalcopy % *** Uncomment this line for the final submission
+
+\def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+
+\ifcvprfinal\pagestyle{empty}\fi
+\begin{document}
+
+\title{Project Proposal : \\
+Given Stereo Views Use 3D Reconstruction Algorithms to Reconstruct Terrain Topography \\
+}
+
+
+\author{Paul Borne--Pons, Quentin Gopée}
+\maketitle
+
+\section{Introduction}
+
+Our project aims to reconstruct terrain topography from stereo views captured by airborne cameras. We will utilize the SIFT algorithm to find matching points between the two images and employ epipolar geometry to rectify the images. Subsequently, we will employ two different algorithms to compute the disparity map and reconstruct the terrain topography.
+
+\section{Motivation}
+
+The motivation behind this project is to reconstruct terrain topography using aerial imagery. This can be applied to various scenarios, such as reconstructing the topography of mountains or creating 3D models of cities. For our project, we will use images of the moon and Mars due to their suitability (e.g., no moving objects, rare occlusions). The motivation in this case is to reconstruct the topography of the moon and Mars.
+
+\section{Methodology}
+\begin{itemize}
+    \item As the core of this project is the estimation of the disparity map, we will initially evaluate the two algorithms on a preprocessed dataset, such as the Middlebury dataset \cite{VisionMiddleburyEdu}.
+    \item Next, we will implement the SIFT algorithm \cite{lindebergScaleInvariantFeature2012} to find matching points between the two images.
+    \item We will then utilize epipolar geometry to rectify the images using the matching points and the RANSAC algorithm \cite{fischlerRandomSampleConsensus1981}.
+    \item Finally, we will employ two different algorithms (seed expansion and Graph Cut \cite{kolomogorov}) to compute the disparity map and reconstruct the terrain topography.
+    \item To validate our implementation, we will compare our results with the Ames Stereo Pipeline from NASA \cite{beyerAmesStereoPipeline2018}.
+\end{itemize}
+
+\section{Dataset}
+\begin{itemize}
+    \item For testing our algorithms, we will use the Middlebury dataset \cite{VisionMiddleburyEdu}.
+    \item For the images of the moon and Mars, we will utilize data from the NASA Ames Stereo Pipeline \cite{beyerAmesStereoPipeline2018}.
+\end{itemize}
+
+{\small
+
+\printbibliography
+}
+
+\end{document}
